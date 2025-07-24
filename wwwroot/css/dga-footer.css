@@ -1,0 +1,216 @@
+/* DGA Footer Utility Classes */
+.pt-\[var\(--spacing-5xl\,40px\)\] {
+    padding-top: var(--spacing-5xl, 40px);
+}
+.pb-\[var\(--spacing-3xl\,24px\)\] {
+    padding-bottom: var(--spacing-3xl, 24px);
+}
+.px-\[var\(--spacing-xl\,16px\)\] {
+    padding-left: var(--spacing-xl, 16px);
+    padding-right: var(--spacing-xl, 16px);
+}
+.lg\:px-\[var\(--spacing-8xl\,80px\)\] {
+    padding-left: var(--spacing-8xl, 80px);
+    padding-right: var(--spacing-8xl, 80px);
+}
+.bg-\[var\(--background-SA-Flag\,\#074D31\)\] {
+    background-color: var(--background-SA-Flag, #074D31);
+}
+.text-\[var\(--text-oncolor-primary\,\#FFF\)\] {
+    color: var(--text-oncolor-primary, #FFF);
+}
+.border-\[var\(--border-oncolor-transparent-30\,rgba\(255\,255\,255\,0\.30\)\)\] {
+    border-color: var(--border-oncolor-transparent-30, rgba(255,255,255,0.30));
+}
+
+/* Grid System */
+.grid {
+    display: grid;
+}
+.grid-cols-12 {
+    grid-template-columns: repeat(12, 1fr);
+}
+.gap-\[24px\] {
+    gap: 24px;
+}
+.gap-\[16px\] {
+    gap: 16px;
+}
+.gap-\[8px\] {
+    gap: 8px;
+}
+.col-span-12 {
+    grid-column: span 12;
+}
+
+/* Responsive Grid Classes */
+@media (min-width: 640px) {
+    .sm\:col-span-6 {
+        grid-column: span 6;
+    }
+}
+
+@media (min-width: 768px) {
+    .md\:col-span-8 {
+        grid-column: span 8;
+    }
+    .md\:col-span-4 {
+        grid-column: span 4;
+    }
+}
+
+@media (min-width: 1024px) {
+    .lg\:col-span-4 {
+        grid-column: span 4;
+    }
+    .lg\:px-\[var\(--spacing-8xl\,80px\)\] {
+        padding-left: var(--spacing-8xl, 80px);
+        padding-right: var(--spacing-8xl, 80px);
+    }
+}
+
+@media (min-width: 1280px) {
+    .xl\:col-span-3 {
+        grid-column: span 3;
+    }
+}
+
+/* Flexbox Utilities */
+.flex {
+    display: flex;
+}
+.flex-col {
+    flex-direction: column;
+}
+.flex-wrap {
+    flex-wrap: wrap;
+}
+.items-center {
+    align-items: center;
+}
+.items-stretch {
+    align-items: stretch;
+}
+.justify-content-center {
+    justify-content: center;
+}
+.w-fit {
+    width: fit-content;
+}
+.aspect-square {
+    aspect-ratio: 1 / 1;
+}
+.cursor-pointer {
+    cursor: pointer;
+}
+.ml-auto {
+    margin-left: auto;
+}
+.mt-auto {
+    margin-top: auto;
+}
+
+/* Spacing Utilities */
+.mb-\[8px\] {
+    margin-bottom: 8px;
+}
+.mb-\[48px\] {
+    margin-bottom: 48px;
+}
+.mb-\[var\(--spacing-5xl\,40px\)\] {
+    margin-bottom: var(--spacing-5xl, 40px);
+}
+.pb-\[8px\] {
+    padding-bottom: 8px;
+}
+.px-\[12px\] {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+.py-\[var\(--spacing-xl\,16px\)\] {
+    padding-top: var(--spacing-xl, 16px);
+    padding-bottom: var(--spacing-xl, 16px);
+}
+.pt-\[var\(--spacing-xl\,16px\)\] {
+    padding-top: var(--spacing-xl, 16px);
+}
+.pb-\[var\(--spacing-5xl\,40px\)\] {
+    padding-bottom: var(--spacing-5xl, 40px);
+}
+.space-y-\[8px\] > * + * {
+    margin-top: 8px;
+}
+
+/* Typography */
+.text-\[14px\] {
+    font-size: 14px;
+}
+.text-\[16px\] {
+    font-size: 16px;
+}
+.font-\[400\] {
+    font-weight: 400;
+}
+.font-\[500\] {
+    font-weight: 500;
+}
+.font-\[600\] {
+    font-weight: 600;
+}
+.leading-\[20px\] {
+    line-height: 20px;
+}
+.leading-\[24px\] {
+    line-height: 24px;
+}
+
+/* Border Utilities */
+.border {
+    border-width: 1px;
+}
+.border-b {
+    border-bottom-width: 1px;
+}
+.rounded-\[4px\] {
+    border-radius: 4px;
+}
+
+/* Link Styles */
+.link {
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+.link:hover {
+    color: #d1d5db !important;
+}
+
+/* Hover Effects */
+.hover\:bg-white:hover {
+    background-color: white;
+}
+.hover\:bg-opacity-20:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.hover\:text-gray-200:hover {
+    color: #e5e7eb;
+}
+.transition-colors {
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+/* CSS Variables */
+:root {
+    --spacing-xl: 16px;
+    --spacing-3xl: 24px;
+    --spacing-4xl: 32px;
+    --spacing-5xl: 40px;
+    --spacing-8xl: 80px;
+    --background-SA-Flag: #074D31;
+    --text-oncolor-primary: #FFF;
+    --border-oncolor-transparent-30: rgba(255,255,255,0.30);
+}
+
+/* HTML5 Elements Display */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}

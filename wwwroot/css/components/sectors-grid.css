@@ -1,0 +1,398 @@
+/* ========================================
+   SECTORS GRID COMPONENT STYLES
+   ======================================== */
+
+.sectors-section {
+  padding: 40px 0;
+}
+
+/* Section Header */
+.sectors-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--dark-text, #161616);
+  margin-bottom: 43px;
+  font-family: var(--bs-font-sans-serif);
+}
+
+.sectors-description {
+  font-size: 16px;
+  color: var(--dark-text, #161616);
+  margin-bottom: 32px;
+  line-height: 1.5;
+}
+
+/* Grid Container */
+.sectors-grid-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  outline: none;
+  margin-bottom: 0;
+}
+
+.sectors-grid {
+  display: grid;
+  gap: 16px;
+  width: 100%;
+  transition: opacity 0.3s ease;
+  padding: 20px 0;
+}
+
+/* Sector Cards */
+.sector-card-wrapper {
+  height: 100%;
+}
+
+.sector-card {
+  background: white;
+  border-radius: var(--border-radius, 12px);
+  border: 1px solid var(--border-color, #E5E7EB);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 220px;
+  position: relative;
+  transition: var(--transition, all 0.3s ease);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sector-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg, 0 20px 25px rgba(0, 0, 0, 0.1));
+  border-color: var(--primary-color, #007945);
+}
+
+.sector-card:hover .sector-icon {
+  transform: scale(1.1);
+  background: var(--primary-gradient, linear-gradient(135deg, #007945, #009e5c));
+}
+
+.sector-card:hover .sector-icon i {
+  color: white;
+}
+
+/* Sector Icon */
+.sector-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--primary-light, rgba(0, 121, 69, 0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  transition: var(--transition, all 0.3s ease);
+  flex-shrink: 0;
+}
+
+.sector-icon i {
+  font-size: 24px;
+  color: var(--primary-color, #007945);
+  transition: var(--transition, all 0.3s ease);
+}
+
+/* Sector Content */
+.sector-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sector-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-dark, #1F2A37);
+  margin-bottom: 8px;
+  line-height: 1.55;
+  font-family: var(--bs-font-sans-serif);
+}
+
+.sector-count {
+  font-size: 14px;
+  color: var(--muted-text, #6B7280);
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+/* Navigation Controls */
+.sectors-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
+  width: 100%;
+  clear: both;
+  flex-direction: row-reverse;
+}
+
+/* Navigation Buttons Group */
+.nav-buttons-group {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Navigation Buttons */
+.sectors-navigation .carousel-nav-btn {
+  background: var(--primary-color, #007945);
+  border: 1px solid var(--primary-color, #007945);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  position: static !important;
+  z-index: 1;
+  transform: none !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+}
+
+.sectors-navigation .carousel-nav-prev {
+  position: static !important;
+  transform: none !important;
+  top: auto !important;
+  left: auto !important;
+}
+
+.sectors-navigation .carousel-nav-next {
+  position: static !important;
+  transform: none !important;
+  top: auto !important;
+  right: auto !important;
+}
+
+.sectors-navigation .carousel-nav-btn:focus {
+  border-color: var(--primary-color, #007945);
+  box-shadow: 0 0 0 3px var(--primary-light, rgba(0, 121, 69, 0.1));
+}
+
+.sectors-navigation .carousel-nav-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: var(--border-color, #E5E7EB);
+}
+
+.sectors-navigation .carousel-nav-btn:disabled i {
+  color: #9CA3AF;
+}
+
+.sectors-navigation .carousel-nav-btn i {
+  font-size: 18px;
+  color: white;
+  transition: color 0.2s ease;
+}
+
+.sectors-navigation .carousel-nav-btn:hover {
+  background: var(--primary-dark, #006539);
+  border-color: var(--primary-dark, #006539);
+  transform: scale(1.05);
+}
+
+.sectors-navigation .carousel-nav-btn:hover i {
+  color: white;
+}
+
+/* Carousel Indicators - Scoped to sectors section only */
+.sectors-section .carousel-indicators {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.sectors-section .carousel-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--neutral-300, #d4d4d4);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.sectors-section .carousel-indicator:hover {
+  background-color: var(--primary-color, #007945);
+  transform: scale(1.2);
+}
+
+.sectors-section .carousel-indicator.active {
+  background-color: var(--primary-color, #007945);
+  transform: scale(1.3);
+}
+
+.sectors-section .carousel-indicator:focus {
+  box-shadow: 0 0 0 3px var(--primary-light, rgba(0, 121, 69, 0.1));
+}
+
+/* RTL Specific Overrides for Carousel Indicators - Scoped to sectors section only */
+.sectors-section[dir="rtl"] .carousel-indicators,
+[dir="rtl"] .sectors-section .carousel-indicators {
+  justify-content: flex-end !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  position: static !important;
+  left: auto !important;
+  right: auto !important;
+}
+
+/* Ensure indicators are not centered by Bootstrap - Scoped to sectors section only */
+.sectors-section .sectors-navigation .carousel-indicators {
+  position: static !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-bottom: 0 !important;
+  justify-content: flex-end !important;
+}
+
+/* Override any Bootstrap centering - Scoped to sectors section only */
+.sectors-section .carousel-indicators {
+  justify-content: flex-end !important;
+  text-align: right !important;
+}
+
+/* For mobile, ensure indicators stay at right - Scoped to sectors section only */
+@media (max-width: 768px) {
+  .sectors-section .sectors-navigation {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+  }
+  
+  .sectors-section .nav-buttons-group {
+    flex-shrink: 0;
+  }
+  
+  .sectors-section .carousel-indicators {
+    flex-shrink: 0;
+    justify-content: flex-end !important;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1199px) {
+  .sectors-title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 991px) {
+  .sectors-title {
+    font-size: 26px;
+  }
+  
+  .sector-card {
+    padding: 18px;
+    min-height: 200px;
+  }
+  
+  .sector-icon {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 14px;
+  }
+  
+  .sector-icon i {
+    font-size: 20px;
+  }
+  
+  .sector-name {
+    font-size: 16px;
+  }
+  
+  .sector-count {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 767px) {
+  .sectors-section {
+    padding: 30px 0;
+  }
+  
+  .sectors-navigation {
+    margin-top: 24px;
+    gap: 16px;
+  }
+  
+  .sectors-title {
+    font-size: 24px;
+    margin-bottom: 32px;
+  }
+  
+  .sectors-description {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  
+  .sector-card {
+    padding: 16px;
+    min-height: 180px;
+  }
+  
+  .carousel-nav-btn {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .carousel-nav-btn i {
+    font-size: 16px;
+  }
+  
+  .carousel-indicator {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .sectors-navigation {
+    margin-top: 20px;
+    gap: 12px;
+  }
+  
+  .carousel-nav-btn {
+    display: none;
+  }
+  
+  .carousel-indicator {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .sector-card {
+    padding: 14px;
+    min-height: 160px;
+  }
+  
+  .sector-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+  }
+  
+  .sector-icon i {
+    font-size: 18px;
+  }
+  
+  .sector-name {
+    font-size: 15px;
+  }
+  
+  .sector-count {
+    font-size: 12px;
+  }
+}

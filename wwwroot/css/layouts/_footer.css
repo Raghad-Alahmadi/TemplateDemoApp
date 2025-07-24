@@ -1,0 +1,135 @@
+.footer {
+  background: var(--secondary-color);
+  color: #fff;
+  padding: 2rem 0;
+  text-align: center;
+}
+.footer a {
+  color: #fff;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.footer a:hover {
+  color: var(--primary-color);
+}
+
+.modern-footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 64px 0 32px;
+}
+
+.footer-title {
+    color: white;
+    font-weight: 600;
+    margin-bottom: 24px;
+    position: relative;
+}
+
+.footer-title:after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--secondary-color);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 16px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-left: 12px;
+    color: white;
+}
+
+.social-icon:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.footer-divider {
+    border-color: rgba(255, 255, 255, 0.1);
+    margin: 32px 0;
+}
+
+.footer-bottom {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-bottom a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    margin-right: 16px;
+}
+
+.footer-bottom a:hover {
+    color: white;
+}
+
+.icon-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    background-color: var(--light-bg);
+    color: var(--primary-color);
+    transition: all 0.3s;
+}
+.partner-logo {
+    padding: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+}
+
+footer h5::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 3px;
+    background-color: var(--bs-primary);
+    bottom: -10px;
+    right: 0;
+    border-radius: 2px;
+}
+
+footer a {
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--bs-primary) !important;
+    transform: translateX(-5px);
+}

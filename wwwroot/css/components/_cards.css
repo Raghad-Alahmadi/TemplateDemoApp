@@ -1,0 +1,515 @@
+/* ========================================
+   REUSABLE CARD SYSTEM
+   ======================================== */
+
+/* Base Card Styles */
+.card-base {
+    display: flex;
+    flex-direction: column;
+    background: var(--colors-base-white, #fff);
+    border-radius: var(--radius-lg, 10px);
+    border: 1px solid var(--colors-gray-200, #EAECF0);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+.card-base:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+}
+
+.card-base.card-focused {
+    border: 2px solid var(--colors-base-black, #000);
+    box-shadow: var(--shadow-md);
+}
+
+.card-base.card-disabled {
+    color: var(--colors-gray-300);
+    background-color: var(--colors-gray-50);
+    border-color: var(--colors-gray-200);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.card-base.card-disabled::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--colors-gray-100);
+    opacity: 0.3;
+    border-radius: inherit;
+}
+
+/* Card Size Variants */
+.card-small {
+    max-width: 280px;
+    padding: var(--spacing-lg, 12px);
+    gap: var(--spacing-4, 16px);
+}
+
+.card-medium {
+    max-width: 350px;
+    padding: var(--spacing-xl, 16px);
+    gap: var(--spacing-6, 24px);
+}
+
+.card-large {
+    max-width: 450px;
+    padding: var(--spacing-8, 32px);
+    gap: var(--spacing-8, 32px);
+}
+
+.card-full {
+    width: 100%;
+    padding: var(--spacing-xl, 16px);
+    gap: var(--spacing-6, 24px);
+}
+
+/* Card Header */
+.card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-4, 16px);
+}
+
+.card-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--colors-gray-900, #111827);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.card-subtitle {
+    font-size: 0.875rem;
+    color: var(--colors-gray-600, #475467);
+    margin: var(--spacing-1, 4px) 0 0 0;
+    line-height: 1.4;
+}
+
+/* Card Body */
+.card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4, 16px);
+}
+
+.card-content {
+    color: var(--colors-gray-700, #344054);
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+/* Card Image */
+.card-image-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: var(--radius-lg, 10px);
+    margin-bottom: var(--spacing-4, 16px);
+}
+
+.card-image-container.card-image-small {
+    height: 150px;
+}
+
+.card-image-container.card-image-large {
+    height: 250px;
+}
+
+.card-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+/* Card Actions */
+.card-actions {
+    display: flex;
+    align-items: center;
+    margin-top: var(--spacing-4, 16px);
+    padding-top: var(--spacing-4, 16px);
+    border-top: 1px solid var(--colors-gray-200, #EAECF0);
+}
+
+.card-actions.card-actions-default {
+    gap: var(--spacing-3, 12px);
+}
+
+.card-actions.card-actions-expanded {
+    justify-content: flex-end;
+}
+
+.card-actions.card-actions-space-between {
+    justify-content: space-between;
+}
+
+.card-actions.card-actions-center {
+    justify-content: center;
+}
+
+.card-actions.card-actions-no-border {
+    border-top: none;
+    padding-top: 0;
+}
+
+/* Card Badge/Icon */
+.card-badge {
+    position: absolute;
+    top: var(--spacing-4, 16px);
+    left: var(--spacing-4, 16px);
+    z-index: 2;
+}
+
+.card-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-lg, 10px);
+    background: var(--colors-gray-100, #F2F4F7);
+    margin-bottom: var(--spacing-4, 16px);
+}
+
+.card-icon.card-icon-primary {
+    background: var(--colors-brand-50, #EFF6FF);
+    color: var(--colors-brand-600, #2563EB);
+}
+
+.card-icon.card-icon-success {
+    background: var(--colors-success-50, #ECFDF5);
+    color: var(--colors-success-600, #059669);
+}
+
+.card-icon.card-icon-warning {
+    background: var(--colors-warning-50, #FFFBEB);
+    color: var(--colors-warning-600, #D97706);
+}
+
+.card-icon.card-icon-danger {
+    background: var(--colors-error-50, #FEF2F2);
+    color: var(--colors-error-600, #DC2626);
+}
+
+/* Icon Circle (Legacy Support) */
+.icon-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    background-color: var(--light-bg, var(--colors-gray-100));
+    color: var(--primary-color, var(--colors-brand-600));
+    transition: all 0.3s;
+}
+
+.feature-card:hover .icon-circle {
+    background-color: var(--primary-color, var(--colors-brand-600));
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Card Checkbox */
+.card-checkbox {
+    position: absolute;
+    top: var(--spacing-4, 16px);
+    right: var(--spacing-4, 16px);
+    z-index: 2;
+}
+
+/* Card Variants */
+.card-outlined {
+    border: 2px solid var(--colors-gray-300, #D0D5DD);
+    background: transparent;
+}
+
+.card-outlined:hover {
+    border-color: var(--colors-gray-400, #98A2B3);
+}
+
+.card-elevated {
+    border: none;
+    box-shadow: var(--shadow-sm);
+}
+
+.card-elevated:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.card-flat {
+    border: none;
+    box-shadow: none;
+    background: var(--colors-gray-50, #F9FAFB);
+}
+
+.card-flat:hover {
+    background: var(--colors-gray-100, #F2F4F7);
+}
+
+/* Interactive States */
+.card-selectable {
+    transition: all 0.2s ease-in-out;
+}
+
+.card-selectable:hover {
+    border-color: var(--colors-brand-300, #93C5FD);
+    box-shadow: var(--shadow-md);
+}
+
+.card-selectable.card-selected {
+    border-color: var(--colors-brand-600, #2563EB);
+    background: var(--colors-brand-25, #F8FAFC);
+    box-shadow: var(--shadow-md);
+}
+
+.card-clickable:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card-clickable:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-md);
+}
+
+/* Utility Classes for Cards */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-6, 24px);
+}
+
+.card-grid.card-grid-small {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: var(--spacing-4, 16px);
+}
+
+.card-grid.card-grid-large {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: var(--spacing-8, 32px);
+}
+
+.card-horizontal {
+    flex-direction: row;
+    align-items: center;
+}
+
+.card-horizontal .card-image-container {
+    width: 120px;
+    height: 80px;
+    margin-bottom: 0;
+    margin-right: var(--spacing-4, 16px);
+    flex-shrink: 0;
+}
+
+.card-horizontal .card-body {
+    flex: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card-large {
+        max-width: 100%;
+        padding: var(--spacing-4, 16px);
+    }
+    
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .card-horizontal {
+        flex-direction: column;
+    }
+    
+    .card-horizontal .card-image-container {
+        width: 100%;
+        height: 150px;
+        margin-right: 0;
+        margin-bottom: var(--spacing-4, 16px);
+    }
+}
+
+/* Service/Appointment Specific Cards */
+.service-card {
+    display: flex;
+    flex-direction: column;
+    max-width: 350px;
+    padding: var(--spacing-xl, 16px);
+    gap: var(--spacing-6, 24px);
+    background: var(--colors-base-white, #fff);
+    border-radius: var(--radius-lg, 10px);
+    border: none;
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+.service-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-1px);
+}
+
+.appointment-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: var(--spacing-xl, 16px);
+    gap: var(--spacing-6, 24px);
+    background: var(--colors-base-white, #fff);
+    border-radius: var(--radius-lg, 10px);
+    border: 2px solid var(--colors-gray-300, #D0D5DD);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+.appointment-card:hover {
+    border-color: var(--colors-gray-400, #98A2B3);
+    box-shadow: var(--shadow-md);
+}
+
+.provider-card {
+    display: flex;
+    flex-direction: column;
+    max-width: 350px;
+    padding: var(--spacing-xl, 16px);
+    gap: var(--spacing-6, 24px);
+    background: var(--colors-base-white, #fff);
+    border-radius: var(--radius-lg, 10px);
+    border: 1px solid var(--colors-gray-200, #EAECF0);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+.provider-card:hover {
+    border-color: var(--colors-brand-300, #93C5FD);
+    box-shadow: var(--shadow-md);
+}
+
+.provider-card.card-selected {
+    border-color: var(--colors-brand-600, #2563EB);
+    background: var(--colors-brand-25, #F8FAFC);
+    box-shadow: var(--shadow-md);
+}
+
+.checkout-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: var(--spacing-xl, 16px);
+    gap: var(--spacing-6, 24px);
+    border: none;
+    box-shadow: none;
+    background: var(--colors-gray-50, #F9FAFB);
+    border-radius: var(--radius-lg, 10px);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+.checkout-card:hover {
+    background: var(--colors-gray-100, #F2F4F7);
+    box-shadow: var(--shadow-md);
+}
+
+/* Quick Application Classes */
+.taibah-service-card {
+    display: flex;
+    flex-direction: column;
+    max-width: 350px;
+    padding: var(--spacing-xl, 16px);
+    gap: var(--spacing-6, 24px);
+    background: var(--colors-base-white, #fff);
+    border-radius: var(--radius-lg, 10px);
+    border: 1px solid var(--colors-gray-200, #EAECF0);
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+.taibah-service-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+    border-color: var(--colors-brand-300, #93C5FD);
+}
+
+.taibah-appointment-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: var(--spacing-xl, 16px);
+    gap: var(--spacing-4, 16px);
+    background: var(--colors-base-white, #fff);
+    border-radius: var(--radius-lg, 10px);
+    border: 2px solid var(--colors-gray-200, #EAECF0);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+.taibah-appointment-card:hover {
+    border-color: var(--colors-brand-400, #60A5FA);
+    box-shadow: var(--shadow-md);
+}
+
+.taibah-provider-card {
+    display: flex;
+    flex-direction: column;
+    max-width: 350px;
+    padding: var(--spacing-xl, 16px);
+    gap: var(--spacing-6, 24px);
+    background: var(--colors-base-white, #fff);
+    border-radius: var(--radius-lg, 10px);
+    border: 1px solid var(--colors-gray-200, #EAECF0);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+.taibah-provider-card:hover {
+    border-color: var(--colors-brand-300, #93C5FD);
+    box-shadow: var(--shadow-md);
+}
+
+.taibah-provider-card.selected {
+    border-color: var(--colors-brand-600, #2563EB);
+    background: var(--colors-brand-25, #F8FAFC);
+    box-shadow: var(--shadow-md);
+}
+
+/* Legacy Card Support */
+
+
+.card {
+    width: 100%;
+    padding: var(--spacing-xl);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--card-lg-gap);
+    border-radius: var(--radius-lg);
+    background: var(--background-card);
+    border: 2px solid var(--background-card);
+    cursor: pointer;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-1px);
+}

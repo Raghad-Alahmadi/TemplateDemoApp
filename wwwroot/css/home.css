@@ -1,0 +1,442 @@
+/* Hero slider indicators */
+.hero-slider #heroCarousel .carousel-indicators,
+#heroCarousel .carousel-indicators {
+    position: absolute !important;
+    bottom: 20px !important;
+    left: 0 !important;
+    right: 0 !important;
+    transform: none !important;
+    margin-left: 15% !important;
+    margin-right: 15% !important;
+    margin-bottom: 1rem !important;
+    justify-content: center !important;
+    text-align: center !important;
+    z-index: 2 !important;
+    display: flex !important;
+    gap: 8px !important;
+    align-items: center !important;
+}
+
+.hero-slider #heroCarousel .carousel-indicators button,
+#heroCarousel .carousel-indicators button {
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50% !important;
+    margin: 0 6px !important;
+    background-color: #fff !important;
+    opacity: 0.6 !important;
+    border: none !important;
+    text-indent: -999px !important;
+    cursor: pointer !important;
+    background-clip: padding-box !important;
+    border-top: 10px solid transparent !important;
+    border-bottom: 10px solid transparent !important;
+    transition: opacity 0.6s ease !important;
+    box-sizing: content-box !important;
+    flex: 0 1 auto !important;
+    padding: 0 !important;
+}
+
+.hero-slider #heroCarousel .carousel-indicators button.active,
+#heroCarousel .carousel-indicators button.active {
+    opacity: 1 !important;
+    background-color: #fff !important;
+}
+
+/* Slide animation */
+.carousel-item h1,
+.carousel-item p,
+.carousel-item a.btn {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease-out;
+}
+.carousel-item.active h1 {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}
+.carousel-item.active p {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.5s;
+}
+.carousel-item a.btn {
+    font-size: 0.95rem;
+    padding: 0.5rem 1.25rem;
+}
+
+/* Hero section button fix */
+.hero-slider .btn-primary,
+.hero-slider .btn.btn-primary,
+.hero-slider .btn-light,
+.hero-slider .btn.btn-light {
+    background: #fff !important;           
+    color: var(--primary-color) !important;
+    border: none !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.hero-slider .btn-primary:hover,
+.hero-slider .btn-primary:focus,
+.hero-slider .btn.btn-primary:hover,
+.hero-slider .btn.btn-primary:focus,
+.hero-slider .btn-light:hover,
+.hero-slider .btn-light:focus,
+.hero-slider .btn.btn-light:hover,
+.hero-slider .btn.btn-light:focus {
+    background: var(--primary-color) !important;
+    color: #fff !important;
+}
+
+/* Button fade-in animation */
+@keyframes buttonFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.carousel-item.active a.btn {
+    opacity: 0;
+    animation: buttonFadeIn 0.8s ease-out forwards;
+    animation-delay: 0.7s;
+}
+
+/* Stats section */
+.stats-circle {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Feature cards and icon circles */
+.icon-circle {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+.feature-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+.feature-card:hover .icon-circle {
+    transform: scale(1.1);
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+/* News cards */
+.card {
+    transition: transform 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Stretched link for feature cards */
+.stretched-link::after {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: 1;
+    content: "";
+}
+
+/* Animation classes */
+.visible {
+    animation: fadeInUp 0.6s ease forwards;
+}
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Carousel dots */
+.dot-indicator {
+    background-color: #e0e0e0;
+    transition: all 0.3s ease;
+    border: 1px solid #ccc;
+    opacity: 0.7;
+}
+.dot-indicator.active {
+    background-color: var(--success-color, #198754);
+    opacity: 1;
+}
+.dot-indicator:hover {
+    opacity: 0.9;
+}
+
+/* Carousel and sector icons */
+.carousel-inner {
+    touch-action: pan-y;
+}
+.carousel-item {
+    transition: transform .6s ease-in-out;
+}
+.sector-icon {
+    width: 70px;
+    height: 70px;
+    transition: all 0.3s ease;
+}
+
+/* Hover lift effect */
+.hover-lift {
+    transition: transform 0.3s ease;
+}
+.hover-lift:hover {
+    transform: translateY(-5px);
+}
+.hover-lift:hover .sector-icon {
+    transform: scale(1.1);
+}
+
+/* Loading Skeleton Styles */
+.loading-skeleton {
+    animation: fadeIn 0.3s ease-in;
+}
+
+.skeleton-item {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 8px;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.skeleton-hero {
+    height: 400px;
+    margin-bottom: 60px;
+    padding: 20px;
+}
+
+.skeleton-hero-content {
+    height: 100%;
+    border-radius: 12px;
+}
+
+.skeleton-stats {
+    padding: 40px 0;
+    margin-bottom: 40px;
+}
+
+.skeleton-stat {
+    height: 120px;
+    border-radius: 12px;
+}
+
+.skeleton-features {
+    padding: 40px 0;
+    margin-bottom: 40px;
+}
+
+.skeleton-feature {
+    height: 200px;
+    border-radius: 12px;
+}
+
+.skeleton-sectors {
+    padding: 40px 0;
+    margin-bottom: 40px;
+}
+
+.skeleton-sector {
+    height: 150px;
+    border-radius: 12px;
+}
+
+/* Fade transition for Vue content */
+.vue-fade-enter-active {
+    transition: opacity 0.5s ease-in;
+}
+
+.vue-fade-enter-from {
+    opacity: 0;
+}
+
+/* skeleton responsiveness */
+@media (max-width: 768px) {
+    .skeleton-hero {
+        height: 250px;
+        margin-bottom: 40px;
+    }
+    
+    .skeleton-feature,
+    .skeleton-sector {
+        height: 120px;
+    }
+    
+    .skeleton-stat {
+        height: 100px;
+    }
+}
+
+/* Add some variation to skeleton items */
+.skeleton-item:nth-child(2n) {
+    animation-delay: 0.2s;
+}
+
+.skeleton-item:nth-child(3n) {
+    animation-delay: 0.4s;
+}
+
+/* Skeleton content structure */
+.skeleton-hero::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 20%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+/* DGA Carousel Styles */
+.dga-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  direction: rtl;
+}
+
+.dga-carousel-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.dga-carousel-track {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.dga-carousel-item {
+  flex: 0 0 25%; /* 4 items per view */
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dga-carousel-item {
+    flex: 0 0 50%; /* 2 items per view on tablet */
+  }
+}
+
+@media (max-width: 576px) {
+  .dga-carousel-item {
+    flex: 0 0 100%; /* 1 item per view on mobile */
+  }
+}
+
+/* Arrow Controls */
+.dga-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: 1px solid #D2D6DB;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dga-carousel-arrow:hover {
+  background: #f8f9fa;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dga-carousel-arrow:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #f5f5f5;
+}
+
+.dga-carousel-prev {
+  left: -20px;
+}
+
+.dga-carousel-next {
+  right: -20px;
+}
+
+.dga-carousel-arrow i {
+  font-size: 18px;
+  color: #1F2A37;
+}
+
+/* RTL Support for arrows */
+.dga-carousel[dir="rtl"] .dga-carousel-prev {
+  right: -20px;
+  left: auto;
+}
+
+.dga-carousel[dir="rtl"] .dga-carousel-next {
+  left: -20px;
+  right: auto;
+}
+
+.dga-featured-icon--light-brand {
+color: var(--text-success);
+background-color: var(--background-brand-light);
+}
+.dga-featured-icon--circle {
+border-radius: var(--radius-full);
+}
+.dga-featured-icon--xl {
+width: 56px;
+min-width: 56px;
+height: 56px;
+}
+.dga-featured-icon {
+display: flex
+;
+min-width: 56px;
+width: 56px;
+height: 56px;
+justify-content: center;
+align-items: center;
+border-radius: var(--radius-sm);
+}

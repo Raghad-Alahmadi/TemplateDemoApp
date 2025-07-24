@@ -1,0 +1,97 @@
+@import '../base/_variables.css';
+@import '../base/_reset.css';
+@import '../base/_utilities.css';
+@import '../components/_buttons.css';
+@import '../components/_badges.css';
+@import '../components/_cards.css';
+
+/* Legacy navbar styles - keeping for compatibility */
+.navbar {
+  background: #fff;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+
+.navbar .nav-link {
+  color: var(--text-dark);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.navbar .nav-link.active,
+.navbar .nav-link:hover {
+  color: var(--primary-color);
+  background: var(--primary-light);
+}
+
+/* Secondary navigation */
+.secondary-nav {
+  background-color: #F3F4F6;
+  padding: 8px 0;
+  font-size: 14px;
+}
+
+.secondary-nav-item {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 20px;
+  color: #6C737F;
+}
+
+.secondary-nav .btn {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 6px;
+  color: #6C737F;
+  background: transparent;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.secondary-nav .btn:hover {
+  background-color: #E5E7EB;
+  color: var(--primary-color);
+}
+
+/* Container customization */
+.container-custom {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (max-width: 1400px) {
+  .container-custom {
+    max-width: 1140px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container-custom {
+    max-width: 960px;
+  }
+}
+
+@media (max-width: 992px) {
+  .container-custom {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-custom {
+    max-width: 540px;
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container-custom {
+    max-width: 100%;
+    padding: 0 12px;
+  }
+}

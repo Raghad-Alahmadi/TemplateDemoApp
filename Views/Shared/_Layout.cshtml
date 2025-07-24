@@ -1,0 +1,152 @@
+@inject IConfiguration Configuration
+
+<!DOCTYPE html>
+<html dir="rtl" lang="ar" prefix="og: http://ogp.me/ns#">
+<head>
+    <!-- Essential Meta Tags (DGA Standard) -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="HandheldFriendly" content="true" />
+    
+    <!-- Primary Meta Tags -->
+    <title>@ViewData["Title"] - @Configuration["SiteSettings:SiteName"]</title>
+    <meta name="title" content="@ViewData["Title"] - @Configuration["SiteSettings:SiteName"]" />
+    <meta name="description" content="علامة تبويب وصف الموقع - علامة تبويب الوصف التفصيلي للموقع" />
+    <meta name="keywords" content="علامة تبويب الكلمات المفتاحية, علامة تبويب كلمة, علامة تبويب كلمة" />
+    <meta name="author" content="@Configuration["SiteSettings:UniversityName"]" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="@Configuration["SiteSettings:SiteName"]" />
+    <meta property="og:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path" />
+    <meta property="og:title" content="@ViewData["Title"] - @Configuration["SiteSettings:SiteName"]" />
+    <meta property="og:description" content="علامة تبويب وصف الموقع - علامة تبويب الوصف التفصيلي للموقع" />
+    <meta property="og:image" content="@Context.Request.Scheme://@Context.Request.Host@Configuration["SiteSettings:OgImagePath"]" />
+    <meta property="og:image:alt" content="علامة تبويب شعار الموقع" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ar_SA" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path" />
+    <meta property="twitter:title" content="@ViewData["Title"] - @Configuration["SiteSettings:SiteName"]" />
+    <meta property="twitter:description" content="علامة تبويب وصف الموقع - علامة تبويب الوصف التفصيلي للموقع" />
+    <meta property="twitter:image" content="@Context.Request.Scheme://@Context.Request.Host@Configuration["SiteSettings:OgImagePath"]" />
+    
+    <!-- Favicon and Icons (DGA Standard) -->
+    <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="~/images/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="~/images/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="~/images/apple-touch-icon.png" />
+    <meta name="theme-color" content="@Configuration["SiteSettings:ThemeColor"]" />
+    <meta name="msapplication-TileColor" content="@Configuration["SiteSettings:ThemeColor"]" />
+    
+    <!-- DNS Prefetch for Performance -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+    
+    <!-- Preconnect for Critical Resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- IBM Plex Sans Arabic Font (DGA Recommended) -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- CSS Resources -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <!-- Taibah unified styles -->
+    <link rel="stylesheet" href="~/css/taibah-integrated-styles.css" asp-append-version="true" />
+
+    <!-- Component-based styles (React-like structure) -->
+    <link rel="stylesheet" href="~/css/Layout.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/components/_buttons.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/components/_cards.css" asp-append-version="true" />
+
+    <!-- Responsive Navigation Styles -->
+    <link rel="stylesheet" href="~/css/responsive-nav.css" asp-append-version="true" />
+
+    <!-- Icon Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+    <!-- Hugeicons Custom CSS -->
+    <link rel="stylesheet" href="~/css/hugeicons.css" asp-append-version="true" />
+
+    <!-- DGA Footer Styles -->
+    <link rel="stylesheet" href="~/css/dga-footer.css" asp-append-version="true" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@@context": "https://schema.org",
+        "@@type": "Organization",
+        "name": "@Configuration["SiteSettings:UniversityName"]",
+        "alternateName": "@Configuration["SiteSettings:UniversityNameEn"]",
+        "url": "@Context.Request.Scheme://@Context.Request.Host",
+        "logo": "@Context.Request.Scheme://@Context.Request.Host@Configuration["SiteSettings:LogoPath"]",
+        "contactPoint": {
+            "@@type": "ContactPoint",
+            "telephone": "@Configuration["SiteSettings:ContactPhone"]",
+            "contactType": "customer service",
+            "availableLanguage": "Arabic"
+        },
+        "address": {
+            "@@type": "PostalAddress",
+            "addressLocality": "@Configuration["SiteSettings:City"]",
+            "addressCountry": "@Configuration["SiteSettings:CountryCode"]"
+        },
+        "sameAs": [
+            "@Configuration["SiteSettings:TwitterHandle"]",
+            "@Configuration["SiteSettings:YouTubeChannel"]"
+        ]
+    }
+    </script>
+
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body itemscope itemtype="https://schema.org/WebPage">
+    <!-- Skip to content link for accessibility (DGA Standard) -->
+    <a class="skip-link sr-only sr-only-focusable" href="#main-content">تخطى إلى المحتوى الرئيسي</a>
+    
+    <!-- Accessibility Toolbar Partial -->
+    <partial name="Partials/_AccessibilityToolbarPartial" />
+
+    <!-- Header Partial -->
+    <partial name="Partials/_HeaderPartial" />
+
+    <!-- Main Content Area (DGA Standard) -->
+    <main id="main-content" 
+          role="main" 
+          itemprop="mainContentOfPage"
+          tabindex="-1"
+          aria-label="المحتوى الرئيسي">
+        @RenderBody()
+    </main>
+
+    <!-- Footer Partial -->
+    <partial name="Partials/_FooterPartial" />
+
+    <!-- JavaScript Resources -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    
+    <!-- Layout-specific JavaScript -->
+    <script src="~/js/layout.js" asp-append-version="true"></script>
+    <script src="~/js/accessibility.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

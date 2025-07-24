@@ -1,0 +1,21 @@
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--primary-color);
+  color: #fff;
+  min-height: 100vh;
+  transition: var(--transition);
+}
+.sidebar.collapsed {
+  width: var(--sidebar-collapsed-width);
+}
+.sidebar .sidebar-link {
+  color: #fff;
+  padding: 1rem;
+  display: block;
+  transition: var(--transition);
+}
+.sidebar .sidebar-link.active,
+.sidebar .sidebar-link:hover {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+}

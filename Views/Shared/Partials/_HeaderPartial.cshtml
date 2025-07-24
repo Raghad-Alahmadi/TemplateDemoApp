@@ -1,0 +1,272 @@
+<!-- Main Site Header (DGA Standard) -->
+<header class="site-header position-sticky" style="top: 40px; z-index: 1020;" role="banner" itemscope itemtype="https://schema.org/WPHeader">
+    <nav class="header-nav header-nav--full" role="navigation" aria-label="التنقل الرئيسي">
+            <!-- Header Actions (Authentication only) -->
+            <div class="header-nav__actions d-none d-lg-flex">
+                <!-- Authentication Partial -->
+                <partial name="Partials/_LoginPartial" />
+            </div>
+
+            <!-- Logo/Branding Section -->
+            <div class="header-nav__branding" itemscope itemtype="https://schema.org/Organization">
+                <a href="/" class="brand-link" 
+                   aria-label="علامة تبويب الصفحة الرئيسية"
+                   itemprop="url">
+                    <img src="~/images/logo-placeholder.png" 
+                         alt="علامة تبويب شعار الموقع" 
+                         height="40" 
+                         itemprop="logo"
+                         onerror="this.style.display='none';" />
+                    <span class="sr-only" itemprop="name">علامة تبويب اسم الموقع</span>
+                </a>
+            </div>
+
+            <!-- Primary Navigation Menu -->        
+            <ul class="header-nav__menu d-none d-lg-flex justify-content-start ps-3 me-0" role="menubar" aria-label="القائمة الرئيسية">
+                    <li role="none">
+                    <a class="header-menu__item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "header-menu__item--active" : "")" 
+                       asp-controller="Home" asp-action="Index"
+                       role="menuitem"
+                       aria-current="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "page" : "false")">
+                        <span class="header-menu__item-label">علامة تبويب قائمة</span>
+                    </a>
+                </li>
+                
+                <!-- Services - Direct link (dropdown commented out) -->
+                <li role="none">
+                    <a class="header-menu__item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Services" ? "header-menu__item--active" : "")" 
+                       asp-controller="Services" asp-action="Index"
+                       role="menuitem"
+                       aria-current="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Services" ? "page" : "false")">
+                        <span class="header-menu__item-label">علامة تبويب قائمة</span>
+                    </a>
+                </li>
+                
+                <!-- Services Dropdown - Commented out -->
+                <!--
+                <li class="dropdown position-relative" role="none">
+                    <a class="header-menu__item" href="#" 
+                       role="menuitem" 
+                       aria-haspopup="true"
+                       aria-expanded="false"
+                       id="services-menu">
+                        <span class="header-menu__item-label">الخدمات</span>
+                        <span class="header-menu__item-arrow" aria-hidden="true">
+                            <i class="hgi hgi-chevron-down"></i>
+                        </span>
+                    </a>
+                    <div class="header__sub-menu header__sub-menu--bg-white header__sub-menu--full dropdown-menu" 
+                         role="menu" 
+                         aria-labelledby="services-menu">
+                        <div class="sub-menu__container">
+                            <div class="sub-menu__column">
+                                <a class="sub-menu__link" href="/Services/Category/Academic" role="menuitem">
+                                    <div class="sub-menu__link-icon--bg" aria-hidden="true">
+                                        <i class="hgi hgi-graduation-cap"></i>
+                                    </div>
+                                    <div>
+                                        <div class="sub-menu__link-label">الخدمات الأكاديمية</div>
+                                        <div class="sub-menu__link-helper">خدمات الطلاب والشؤون الأكاديمية</div>
+                                    </div>
+                                </a>
+                                <a class="sub-menu__link" href="/Services/Category/Admin" role="menuitem">
+                                    <div class="sub-menu__link-icon--bg" aria-hidden="true">
+                                        <i class="hgi hgi-settingss"></i>
+                                    </div>
+                                    <div>
+                                        <div class="sub-menu__link-label">الخدمات الإدارية</div>
+                                        <div class="sub-menu__link-helper">الخدمات الإدارية والتنظيمية</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sub-menu__column">
+                                <a class="sub-menu__link" href="/Services/Category/Technical" role="menuitem">
+                                    <div class="sub-menu__link-icon--bg" aria-hidden="true">
+                                        <i class="hgi hgi-laptop-code"></i>
+                                    </div>
+                                    <div>
+                                        <div class="sub-menu__link-label">الخدمات التقنية</div>
+                                        <div class="sub-menu__link-helper">الدعم التقني والحلول الرقمية</div>
+                                    </div>
+                                </a>
+                                <a class="sub-menu__link" href="/Services" role="menuitem">
+                                    <div class="sub-menu__link-icon--bg" aria-hidden="true">
+                                        <i class="hgi hgi-list"></i>
+                                    </div>
+                                    <div>
+                                        <div class="sub-menu__link-label">جميع الخدمات</div>
+                                        <div class="sub-menu__link-helper">استعراض كامل للخدمات المتاحة</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                -->
+                
+                <li role="none">
+                    <a class="header-menu__item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Providers" ? "header-menu__item--active" : "")" 
+                       asp-controller="Providers" asp-action="Index"
+                       role="menuitem"
+                       aria-current="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Providers" ? "page" : "false")">
+                        <span class="header-menu__item-label">علامة تبويب قائمة</span>
+                    </a>
+                </li>
+                
+                @if (User.Identity != null && User.Identity.IsAuthenticated)
+                {
+                    <li role="none">
+                        <a class="header-menu__item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Appointments" ? "header-menu__item--active" : "")" 
+                           asp-controller="Appointments" asp-action="Index"
+                           role="menuitem"
+                           aria-current="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Appointments" ? "page" : "false")">
+                            <span class="header-menu__item-icon" aria-hidden="true">
+                                <i class="hgi hgi-calendar-check"></i>
+                            </span>
+                            <span class="header-menu__item-label">علامة تبويب قائمة</span>
+                        </a>
+                    </li>
+                    
+                    @if (User.IsInRole("Admin") || User.IsInRole("ProviderAdmin"))
+                    {
+                        <li role="none">
+                            <a class="header-menu__item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Dashboard" ? "header-menu__item--active" : "")" 
+                               asp-controller="Dashboard" asp-action="Index"
+                               role="menuitem"
+                               aria-current="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Dashboard" ? "page" : "false")">
+                                <span class="header-menu__item-icon" aria-hidden="true">
+                                    <i class="hgi hgi-speedometer"></i>
+                                </span>
+                                <span class="header-menu__item-label">علامة تبويب قائمة</span>
+                            </a>
+                        </li>
+                    }
+                }
+            </ul>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="header-menu__btn d-lg-none border-0 bg-transparent" 
+                    type="button" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#mobileNavMenu" 
+                    aria-controls="mobileNavMenu"
+                    aria-expanded="false" 
+                    aria-label="فتح قائمة التنقل">
+                <i class="hgi hgi-bars" aria-hidden="true"></i>
+                <span class="sr-only">قائمة التنقل</span>
+            </button>
+    </nav>
+    
+    <!-- Mobile Navigation Menu (DGA Standard) -->
+    <div class="collapse navbar-collapse d-lg-none" id="mobileNavMenu">
+        <nav class="mobile-nav" role="navigation" aria-label="قائمة التنقل المحمول">
+            <!-- Mobile Header Actions (Authentication only) -->
+            <div class="mobile-nav__header pb-3 border-bottom">
+                <div class="d-flex justify-content-end align-items-center">
+                    <!-- Mobile Authentication - Match Desktop -->
+                    <div class="mobile-auth">
+                        <!-- Mobile Authentication Partial - Same as Desktop -->
+                        <partial name="Partials/_LoginPartial" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Items -->
+            <ul class="mobile-nav__list list-unstyled" role="menubar">
+                <li role="none" class="mb-2">
+                    <a class="mobile-nav__link d-block py-3 px-4 rounded fs-5 @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")" 
+                       asp-controller="Home" asp-action="Index"
+                       role="menuitem"
+                       aria-current="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "page" : "false")">
+                        <i class="hgi hgi-home me-3 fs-4"></i>
+                        الرئيسية
+                    </a>
+                </li>
+                
+                <!-- Services - Direct link (dropdown commented out) -->
+                <li role="none" class="mb-2">
+                    <a class="mobile-nav__link d-block py-3 px-4 rounded fs-5 @(ViewContext.RouteData.Values["controller"]?.ToString() == "Services" ? "active" : "")" 
+                       asp-controller="Services" asp-action="Index"
+                       role="menuitem"
+                       aria-current="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Services" ? "page" : "false")">
+                        <i class="hgi hgi-grid me-3 fs-4"></i>
+                        الخدمات
+                    </a>
+                </li>
+                
+                <!-- Services Mobile Dropdown - Commented out -->
+                <!--
+                <li class="mobile-nav__dropdown" role="none">
+                    <button class="mobile-nav__toggle btn btn-link w-100 text-start d-flex justify-content-between align-items-center py-2 px-3 text-decoration-none" 
+                            type="button"
+                            role="menuitem" 
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#mobileServicesMenu">
+                        <span>
+                            <i class="hgi hgi-grid me-2"></i>
+                            الخدمات
+                        </span>
+                        <i class="hgi hgi-chevron-down mobile-nav__arrow" aria-hidden="true"></i>
+                    </button>
+                    <div class="collapse mobile-nav__submenu ms-3" id="mobileServicesMenu" role="menu">
+                        <a class="mobile-nav__sublink d-block py-2 px-3 rounded mb-1" href="/Services/Category/Academic" role="menuitem">
+                            <i class="hgi hgi-graduation-cap me-2 text-primary"></i>
+                            الخدمات الأكاديمية
+                        </a>
+                        <a class="mobile-nav__sublink d-block py-2 px-3 rounded mb-1" href="/Services/Category/Admin" role="menuitem">
+                            <i class="hgi hgi-settingss me-2 text-info"></i>
+                            الخدمات الإدارية
+                        </a>
+                        <a class="mobile-nav__sublink d-block py-2 px-3 rounded mb-1" href="/Services/Category/Technical" role="menuitem">
+                            <i class="hgi hgi-laptop-code me-2 text-success"></i>
+                            الخدمات التقنية
+                        </a>
+                        <a class="mobile-nav__sublink d-block py-2 px-3 rounded" href="/Services" role="menuitem">
+                            <i class="hgi hgi-list me-2 text-secondary"></i>
+                            جميع الخدمات
+                        </a>
+                    </div>
+                </li>
+                -->
+                
+                <li role="none" class="mb-2">
+                    <a class="mobile-nav__link d-block py-3 px-4 rounded fs-5 @(ViewContext.RouteData.Values["controller"]?.ToString() == "Providers" ? "active" : "")" 
+                       asp-controller="Providers" asp-action="Index"
+                       role="menuitem"
+                       aria-current="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Providers" ? "page" : "false")">
+                        <i class="hgi hgi-building me-3 fs-4"></i>
+                        الجهات
+                    </a>
+                </li>
+                
+                @if (User.Identity != null && User.Identity.IsAuthenticated)
+                {
+                    <li role="none" class="mb-2">
+                        <a class="mobile-nav__link d-block py-3 px-4 rounded fs-5 @(ViewContext.RouteData.Values["controller"]?.ToString() == "Appointments" ? "active" : "")" 
+                           asp-controller="Appointments" asp-action="Index"
+                           role="menuitem"
+                           aria-current="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Appointments" ? "page" : "false")">
+                            <i class="hgi hgi-calendar-check me-3 fs-4"></i>
+                            مواعيدي
+                        </a>
+                    </li>
+                    
+                    @if (User.IsInRole("Admin") || User.IsInRole("ProviderAdmin"))
+                    {
+                        <li role="none" class="mb-2">
+                            <a class="mobile-nav__link d-block py-3 px-4 rounded fs-5 @(ViewContext.RouteData.Values["controller"]?.ToString() == "Dashboard" ? "active" : "")" 
+                               asp-controller="Dashboard" asp-action="Index"
+                               role="menuitem"
+                               aria-current="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Dashboard" ? "page" : "false")">
+                                <i class="hgi hgi-speedometer me-3 fs-4"></i>
+                                لوحة التحكم
+                            </a>
+                        </li>
+                    }
+                }
+            </ul>
+        </nav>
+    </div>
+</header>

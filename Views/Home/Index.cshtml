@@ -1,0 +1,111 @@
+@{
+    ViewData["Title"] = "علامة تبويب عنوان الصفحة";
+}
+
+@section Styles {
+    <!-- Inline critical CSS -->
+    <style>
+      .hero-slider { position: relative; width: 100%; min-height: 491px; overflow: hidden; }
+      .hero-slider img { width: 100%; height: auto; object-fit: cover; }
+      .carousel-caption { position: absolute; left: 0; right: 0; bottom: 0; top: 0; display: flex; align-items: center; justify-content: center; }
+      .display-4 { font-size: 2.5rem; font-weight: 700; }
+      .btn-lg { font-size: 1.25rem; padding: .75rem 1.5rem; }
+      .page-content { padding: 40px 15px 0; }
+      .section-spacing { margin-top: 24px; }
+    </style>
+
+    <!-- Async-load full CSS -->
+    <link rel="preload" href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css"></noscript>
+    <link rel="preload" href="~/css/components/_buttons.css" as="style" onload="this.rel='stylesheet'" asp-append-version="true">
+    <noscript><link rel="stylesheet" href="~/css/components/_buttons.css" asp-append-version="true"></noscript>
+    <link rel="preload" href="~/css/home.css" as="style" onload="this.rel='stylesheet'" asp-append-version="true">
+    <noscript><link rel="stylesheet" href="~/css/home.css" asp-append-version="true"></noscript>
+    <link rel="preload" href="~/css/site.css" as="style" onload="this.rel='stylesheet'" asp-append-version="true">
+    <noscript><link rel="stylesheet" href="~/css/site.css" asp-append-version="true"></noscript>
+}
+
+<!-- Preload JS critical components -->
+<link rel="preload" href="~/js/components/Home/HeroCarousel.js" as="script" asp-append-version="true">
+
+<!-- Load important JS components first -->
+<script defer src="~/js/components/Home/HeroCarousel.js" asp-append-version="true"></script>
+<script defer src="~/js/components/Home/StatsSection.js" asp-append-version="true"></script>
+<script defer src="~/js/components/Services/ServiceCard.js" asp-append-version="true"></script>
+<script defer src="~/js/components/Home/FeaturesSlider.js" asp-append-version="true"></script>
+<script defer src="~/js/components/Home/SectorsGrid.js" asp-append-version="true"></script>
+<script defer src="~/js/components/Home/NewsSection.js" asp-append-version="true"></script>
+<script defer src="~/js/home.js" asp-append-version="true"></script>
+
+<!-- Load non-critical scripts -->
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+
+<div id="app" dir="rtl">
+    <!-- Loading skeleton -->
+    <div id="loading-skeleton" class="loading-skeleton">
+        <div class="skeleton-hero">
+            <div class="skeleton-item skeleton-hero-content"></div>
+        </div>
+
+        <div class="page-content">
+            <div class="skeleton-stats section-spacing">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 mb-3"><div class="skeleton-item skeleton-stat"></div></div>
+                        <div class="col-md-4 mb-3"><div class="skeleton-item skeleton-stat"></div></div>
+                        <div class="col-md-4 mb-3"><div class="skeleton-item skeleton-stat"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skeleton-features section-spacing">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 mb-3"><div class="skeleton-item skeleton-feature"></div></div>
+                        <div class="col-md-4 mb-3"><div class="skeleton-item skeleton-feature"></div></div>
+                        <div class="col-md-4 mb-3"><div class="skeleton-item skeleton-feature"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skeleton-sectors section-spacing">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 mb-3"><div class="skeleton-item skeleton-sector"></div></div>
+                        <div class="col-md-3 mb-3"><div class="skeleton-item skeleton-sector"></div></div>
+                        <div class="col-md-3 mb-3"><div class="skeleton-item skeleton-sector"></div></div>
+                        <div class="col-md-3 mb-3"><div class="skeleton-item skeleton-sector"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vue components hidden initially -->
+    <div id="vue-content" style="display: none;">
+        <hero-carousel></hero-carousel>
+        <div class="page-content">
+            <stats-section :stats="stats" class="section-spacing"></stats-section>
+            <features-slider :services="features" :slider-dots="sliderDots" @@activate-dot="activateDot" @@show-booking-modal="handleShowBookingModal" class="section-spacing"></features-slider>
+            <sectors-grid :sectors="sectors" class="section-spacing"></sectors-grid>
+            <news-section :news="news" :last-updated="lastUpdated" class="section-spacing"></news-section>
+        </div>
+    </div>
+</div>
+
+<noscript>
+    <div class="alert alert-warning text-center m-4">
+        <h4>يتطلب تمكين JavaScript</h4>
+        <p>لتحسين تجربة التصفح، يرجى تمكين JavaScript في متصفحك.</p>
+    </div>
+</noscript>
+
+@section Scripts {
+    <script>
+        // Pass server-side data to Vue.js
+        window.serverData = {
+            featuredServices: @Html.Raw(Json.Serialize(ViewBag.FeaturedServices ?? new List<object>())),
+            sectors: @Html.Raw(Json.Serialize(ViewBag.Sectors ?? new List<object>()))
+        };
+    </script>
+}
