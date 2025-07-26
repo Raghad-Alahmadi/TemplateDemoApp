@@ -1504,7 +1504,7 @@
 }
 
 .dga-btn--secondary-outline {
-    background-color: #F2F3F5;
+    background-color: transparent;
     color: #111827;
     border: 1px solid #E5E7EB;
     appearance: none;

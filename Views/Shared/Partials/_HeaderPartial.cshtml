@@ -41,69 +41,7 @@
                         <span class="header-menu__item-label">علامة تبويب قائمة</span>
                     </a>
                 </li>
-                
-                <!-- Services Dropdown - Commented out -->
-                <!--
-                <li class="dropdown position-relative" role="none">
-                    <a class="header-menu__item" href="#" 
-                       role="menuitem" 
-                       aria-haspopup="true"
-                       aria-expanded="false"
-                       id="services-menu">
-                        <span class="header-menu__item-label">الخدمات</span>
-                        <span class="header-menu__item-arrow" aria-hidden="true">
-                            <i class="hgi hgi-chevron-down"></i>
-                        </span>
-                    </a>
-                    <div class="header__sub-menu header__sub-menu--bg-white header__sub-menu--full dropdown-menu" 
-                         role="menu" 
-                         aria-labelledby="services-menu">
-                        <div class="sub-menu__container">
-                            <div class="sub-menu__column">
-                                <a class="sub-menu__link" href="/Services/Category/Academic" role="menuitem">
-                                    <div class="sub-menu__link-icon--bg" aria-hidden="true">
-                                        <i class="hgi hgi-graduation-cap"></i>
-                                    </div>
-                                    <div>
-                                        <div class="sub-menu__link-label">الخدمات الأكاديمية</div>
-                                        <div class="sub-menu__link-helper">خدمات الطلاب والشؤون الأكاديمية</div>
-                                    </div>
-                                </a>
-                                <a class="sub-menu__link" href="/Services/Category/Admin" role="menuitem">
-                                    <div class="sub-menu__link-icon--bg" aria-hidden="true">
-                                        <i class="hgi hgi-settingss"></i>
-                                    </div>
-                                    <div>
-                                        <div class="sub-menu__link-label">الخدمات الإدارية</div>
-                                        <div class="sub-menu__link-helper">الخدمات الإدارية والتنظيمية</div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="sub-menu__column">
-                                <a class="sub-menu__link" href="/Services/Category/Technical" role="menuitem">
-                                    <div class="sub-menu__link-icon--bg" aria-hidden="true">
-                                        <i class="hgi hgi-laptop-code"></i>
-                                    </div>
-                                    <div>
-                                        <div class="sub-menu__link-label">الخدمات التقنية</div>
-                                        <div class="sub-menu__link-helper">الدعم التقني والحلول الرقمية</div>
-                                    </div>
-                                </a>
-                                <a class="sub-menu__link" href="/Services" role="menuitem">
-                                    <div class="sub-menu__link-icon--bg" aria-hidden="true">
-                                        <i class="hgi hgi-list"></i>
-                                    </div>
-                                    <div>
-                                        <div class="sub-menu__link-label">جميع الخدمات</div>
-                                        <div class="sub-menu__link-helper">استعراض كامل للخدمات المتاحة</div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                -->
-                
+    
                 <li role="none">
                     <a class="header-menu__item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Providers" ? "header-menu__item--active" : "")" 
                        asp-controller="Providers" asp-action="Index"
@@ -193,43 +131,7 @@
                         الخدمات
                     </a>
                 </li>
-                
-                <!-- Services Mobile Dropdown - Commented out -->
-                <!--
-                <li class="mobile-nav__dropdown" role="none">
-                    <button class="mobile-nav__toggle btn btn-link w-100 text-start d-flex justify-content-between align-items-center py-2 px-3 text-decoration-none" 
-                            type="button"
-                            role="menuitem" 
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                            data-bs-toggle="collapse" 
-                            data-bs-target="#mobileServicesMenu">
-                        <span>
-                            <i class="hgi hgi-grid me-2"></i>
-                            الخدمات
-                        </span>
-                        <i class="hgi hgi-chevron-down mobile-nav__arrow" aria-hidden="true"></i>
-                    </button>
-                    <div class="collapse mobile-nav__submenu ms-3" id="mobileServicesMenu" role="menu">
-                        <a class="mobile-nav__sublink d-block py-2 px-3 rounded mb-1" href="/Services/Category/Academic" role="menuitem">
-                            <i class="hgi hgi-graduation-cap me-2 text-primary"></i>
-                            الخدمات الأكاديمية
-                        </a>
-                        <a class="mobile-nav__sublink d-block py-2 px-3 rounded mb-1" href="/Services/Category/Admin" role="menuitem">
-                            <i class="hgi hgi-settingss me-2 text-info"></i>
-                            الخدمات الإدارية
-                        </a>
-                        <a class="mobile-nav__sublink d-block py-2 px-3 rounded mb-1" href="/Services/Category/Technical" role="menuitem">
-                            <i class="hgi hgi-laptop-code me-2 text-success"></i>
-                            الخدمات التقنية
-                        </a>
-                        <a class="mobile-nav__sublink d-block py-2 px-3 rounded" href="/Services" role="menuitem">
-                            <i class="hgi hgi-list me-2 text-secondary"></i>
-                            جميع الخدمات
-                        </a>
-                    </div>
-                </li>
-                -->
+
                 
                 <li role="none" class="mb-2">
                     <a class="mobile-nav__link d-block py-3 px-4 rounded fs-5 @(ViewContext.RouteData.Values["controller"]?.ToString() == "Providers" ? "active" : "")" 
